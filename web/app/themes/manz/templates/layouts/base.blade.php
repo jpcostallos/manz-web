@@ -18,7 +18,7 @@
             </aside>
           </div>
         @else
-          <main class="main">
+          <main class="main col p-2">
             @yield('content')
           </main>
         @endif

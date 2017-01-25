@@ -1,4 +1,4 @@
-<header class="banner">
+<header class="banner p-1 mb-3">
   <div class="container">
     <a class="brand" href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a>
     <nav class="nav-primary">
