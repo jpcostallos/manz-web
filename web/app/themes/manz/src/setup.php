@@ -87,6 +87,7 @@ add_action('widgets_init', function () {
         'name'          => __('Footer', 'sage'),
         'id'            => 'sidebar-footer'
     ] + $config);
+    register_widget( '\App\Bio_Widget' );
 });
 
 /**
@@ -154,3 +155,132 @@ add_action('after_setup_theme', function () {
  * Init config
  */
 sage()->bindIf('config', Config::class, true);
+
+
+
+/**
+ * Adds Bio_Widget widget.
+ */
+class Bio_Widget extends \WP_Widget{
+
+    /**
+     * Register widget with WordPress.
+     */
+    function __construct() {
+        parent::__construct(
+            'bio_widget', // Base ID
+            esc_html__( 'Author Bio', 'text_domain' ), // Name
+            array( 'description' => esc_html__( 'Site Author Bio', 'text_domain' ), ) // Args
+        );
+    }
+
+    /**
+     * Front-end display of widget.
+     *
+     * @see WP_Widget::widget()
+     *
+     * @param array $args     Widget arguments.
+     * @param array $instance Saved values from database.
+     */
+    public function widget( $args, $instance ) {
+        echo $args['before_widget'];
+        if ( ! empty( $instance['title'] ) ) { ?>
+
+        <div class='widget-title'>
+            <h3><?php echo wpautop( esc_html( $instance['title'] ) ) ?></h3>
+        </div>
+        <div class='widget-description'>
+            <?php echo wpautop( esc_html( $instance['description'] ) ) ?>
+        </div>
+
+        <div class='widget-link'>
+            <a href='<?php echo esc_url( $instance['link_url'] ) ?>'><?php echo esc_html( $instance['link_title'] ) ?></a>
+        </div>
+
+        <div class='widget-img'>
+            <img class="img-fluid" src='<?php echo $instance['image'] ?>'>
+        </div>
+        <?php
+        }
+        echo $args['after_widget'];
+    }
+
+    /**
+     * Back-end widget form.
+     *
+     * @see WP_Widget::form()
+     *
+     * @param array $instance Previously saved values from database.
+     */
+    public function form( $instance ) {
+
+        $title = '';
+        if( !empty( $instance['title'] ) ) {
+            $title = $instance['title'];
+        }
+
+        $description = '';
+        if( !empty( $instance['description'] ) ) {
+            $description = $instance['description'];
+        }
+
+        $link_url = '';
+        if( !empty( $instance['link_url'] ) ) {
+            $link_url = $instance['link_url'];
+        }
+
+        $link_title = '';
+        if( !empty( $instance['link_title'] ) ) {
+            $link_title = $instance['link_title'];
+        }
+
+        $image = '';
+        if(isset($instance['image']))
+        {
+            $image = $instance['image'];
+        }
+
+        ?>
+        <div class="form-group">
+            <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Name:' ); ?></label>
+            <input class="widefat form-control" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+        </div>
+
+        <div class="form-group">
+            <label for="<?php echo $this->get_field_name( 'description' ); ?>"><?php _e( 'Description:' ); ?></label>
+            <textarea class="widefat form-control" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" type="text" ><?php echo esc_attr( $description ); ?></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="<?php echo $this->get_field_name( 'link_url' ); ?>"><?php _e( 'Link URL:' ); ?></label>
+            <input class="widefat form-control" id="<?php echo $this->get_field_id( 'link_url' ); ?>" name="<?php echo $this->get_field_name( 'link_url' ); ?>" type="text" value="<?php echo esc_attr( $link_url ); ?>" />
+        </div>
+
+        <div class="form-group">
+            <label for="<?php echo $this->get_field_name( 'link_title' ); ?>"><?php _e( 'Link Title:' ); ?></label>
+            <input class="widefat form-control" id="<?php echo $this->get_field_id( 'link_title' ); ?>" name="<?php echo $this->get_field_name( 'link_title' ); ?>" type="text" value="<?php echo esc_attr( $link_title ); ?>" />
+        </div>
+
+        <div class="form-group">
+            <label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image URL:' ); ?></label>
+            <input name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" class="widefat form-control" type="text" size="36"  value="<?php echo esc_url( $image ); ?>" />
+            <input class="upload_image_button" type="button" value="Upload Image" />
+        </div>
+        <?php
+    }
+
+    /**
+     * Sanitize widget form values as they are saved.
+     *
+     * @see WP_Widget::update()
+     *
+     * @param array $new_instance Values just sent to be saved.
+     * @param array $old_instance Previously saved values from database.
+     *
+     * @return array Updated safe values to be saved.
+     */
+    public function update( $new_instance, $old_instance ) {
+        return $new_instance;
+    }
+
+} // class Bio_Widget

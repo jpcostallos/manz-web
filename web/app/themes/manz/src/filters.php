@@ -64,3 +64,14 @@ add_filter('template_include', function ($template) {
  * Tell WordPress how to find the compiled path of comments.blade.php
  */
 add_filter('comments_template', 'App\\template_path');
+
+
+/**
+ * Tell Add Media Upload scripts to backend for widget
+ */
+add_action('admin_enqueue_scripts', function () {
+    wp_enqueue_script('media-upload');
+    wp_enqueue_script('thickbox');
+    wp_enqueue_script('sage/admin.js', asset_path('scripts/admin.js'), ['jquery'], null, true);
+    wp_enqueue_style('thickbox');
+}, 100);
