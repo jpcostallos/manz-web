@@ -187,7 +187,7 @@ class Bio_Widget extends \WP_Widget{
         if ( ! empty( $instance['title'] ) ) { ?>
 
         <div class='widget-title'>
-            <h3><?php echo wpautop( esc_html( $instance['title'] ) ) ?></h3>
+            <h3 class="m-0"><?php echo esc_html( $instance['title'] ) ?></h3>
         </div>
         <div class='widget-description'>
             <?php echo wpautop( esc_html( $instance['description'] ) ) ?>
@@ -198,7 +198,7 @@ class Bio_Widget extends \WP_Widget{
         </div>
 
         <div class='widget-img'>
-            <img class="img-fluid" src='<?php echo $instance['image'] ?>'>
+            <img class="img-fluid rounded-circle" src='<?php echo $instance['image'] ?>'>
         </div>
         <?php
         }

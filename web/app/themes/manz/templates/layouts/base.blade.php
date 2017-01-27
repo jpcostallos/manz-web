@@ -2,9 +2,9 @@
 <html @php(language_attributes())>
   @include('partials.head')
   <body @php(body_class())>
-    @php(do_action('get_header'))
-    @include('partials.header')
     <div class="wrap container" role="document">
+        @php(do_action('get_header'))
+        @include('partials.header')
       <div class="content row">
         @if (App\display_sidebar())
           <div class="col-md-9">
