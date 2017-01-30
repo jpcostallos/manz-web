@@ -1,5 +1,54 @@
 .banner{
-  position: relative
+  position: relative;
+  .nav-primary{
+    align-items: stretch;
+    ul{
+      height: 100%;
+      li {
+        min-width: 150px;
+        text-align: center;
+        background-size: 100%;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        z-index: 100;
+        @extend .transition;
+
+        &:before{
+          background: #ef32d9; /* fallback for old browsers */
+          background-image: -webkit-linear-gradient(to left, #ef32d9 , #89fffd); /* Chrome 10-25, Safari 5.1-6 */
+          background-image: linear-gradient(to left, #ef32d9 , #89fffd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          border-radius: inherit;
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          top: -5px; left: 0;
+          opacity: 0;
+          width: 100%;
+          z-index: -100;
+          transition: opacity 0.45s;
+        }
+
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+        }
+
+        a{
+          font-weight: 600;
+          height: 100%;
+          @extend .py-3;
+          @extend .delta;
+
+          &:hover{
+            color: $white;
+          }
+        }
+      }
+    }
+  }
 }
 
 .banner::after{
@@ -24,13 +73,7 @@
 .brand{
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-
-
-
-
   background: #3494E6; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #3494E6 , #EC6EAD); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #3494E6 , #EC6EAD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+  background-image: -webkit-linear-gradient(to left, #89fffd , #ef32d9); /* Chrome 10-25, Safari 5.1-6 */
+  background-image: linear-gradient(to left, #89fffd , #ef32d9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
