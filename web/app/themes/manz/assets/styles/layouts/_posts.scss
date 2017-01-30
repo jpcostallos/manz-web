@@ -1,0 +1,12 @@
+.home{
+  article{
+    border-top: 1px dashed $brand-primary;
+    a{
+      color: $brand-gray;
+    }
+    header, i{
+      color: $brand-primary;
+    }
+    @extend .hover-gray;
+  }
+}
