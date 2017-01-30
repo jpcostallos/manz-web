@@ -8,7 +8,7 @@
       <div class="content row">
         @if (App\display_sidebar())
           <div class="col-md-9">
-            <main class="main p-2">
+            <main class="main">
               @yield('content')
             </main>
           </div>
