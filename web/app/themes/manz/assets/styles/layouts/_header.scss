@@ -18,16 +18,23 @@
           background: #ef32d9; /* fallback for old browsers */
           background-image: -webkit-linear-gradient(to left, #ef32d9 , #89fffd); /* Chrome 10-25, Safari 5.1-6 */
           background-image: linear-gradient(to left, #ef32d9 , #89fffd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-          border-radius: inherit;
           content: '';
           display: block;
-          height: 100%;
+          height: calc(100% - 5px);
           position: absolute;
-          top: -5px; left: 0;
+          top: 0;
+          left: 0;
           opacity: 0;
           width: 100%;
           z-index: -100;
           transition: opacity 0.45s;
+
+        }
+
+        &:last-child{
+          &:before{
+            border-top-right-radius: 5px;
+          }
         }
 
         &:hover {
