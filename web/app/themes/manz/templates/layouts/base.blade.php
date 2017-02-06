@@ -13,7 +13,7 @@
             </main>
           </div>
           <div class="col-md-3">
-            <aside class="sidebar p-2">
+            <aside class="sidebar p-2 mt-5">
               @include('partials.sidebar')
             </aside>
           </div>

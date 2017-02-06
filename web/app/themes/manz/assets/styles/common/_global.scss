@@ -6,6 +6,7 @@
 .main, .sidebar, .banner{
   background-color: $white;
   border-radius: 5px;
+  position: relative;
 }
 
 .transition{
@@ -17,5 +18,6 @@
 
   &:hover{
     background-color: #eee;
+    cursor: pointer;
   }
 }
