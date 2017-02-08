@@ -1,4 +1,4 @@
-<header class="banner mb-2">
+<header class="banner my-2">
   <div class="container pr-0">
     <nav class="nav-primary navbar navbar-toggleable-md  p-0">
       <a class="brand mr-auto py-1 text-center" href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a>
