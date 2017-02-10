@@ -9,8 +9,9 @@
         @endif
         <div class="@if(has_post_thumbnail()) col-md-8 @else col-md-12 @endif">
             <a href="{{ get_permalink() }}">
-                <header>
-                    <h2 class="entry-title mt-0">{{ get_the_title() }}</h2>
+                <header class="mb-1">
+                    @include('partials/entry-cat')
+                    <h2 class="entry-title mt-0 mb-0">{{ get_the_title() }}</h2>
                     @include('partials/entry-meta')
                 </header>
                 <div class="entry-summary">
