@@ -22,7 +22,7 @@
   }
 }
 
-@mixin rairainbownbow($position){
+@mixin rainbow($position){
   background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
   height: 5px;
   width: 100%;
