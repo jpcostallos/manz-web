@@ -1,6 +1,6 @@
 <article @php(post_class('p-2'))>
-  <header>
-    <h2 class="entry-title mt-0">{{ get_the_title() }}</h2>
+  <header class="mb-1">
+    <h2 class="entry-title mt-0 mb-0">{{ get_the_title() }}</h2>
     @include('partials/entry-meta')
   </header>
   <div class="entry-content">
