@@ -87,7 +87,8 @@ function display_sidebar()
     isset($display) || $display = apply_filters('sage/display_sidebar', in_array(true, [
         is_single(),
         is_front_page(),
-        is_page()
+        is_page(),
+        is_archive()
     ]));
     return $display;
 }
