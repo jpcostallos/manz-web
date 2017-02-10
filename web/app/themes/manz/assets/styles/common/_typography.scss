@@ -42,3 +42,10 @@ small, .zeta {font-size: 0.75em;}
 .light { font-weight: 300;}
 
 a:hover{text-decoration: none;}
+
+
+@include media-breakpoint-down(sm) {
+  html {font-size: 0.85em;}
+  h2, .beta {font-size: 1.777em;}
+  .entry-title {padding: 0.5em 0;}
+}
