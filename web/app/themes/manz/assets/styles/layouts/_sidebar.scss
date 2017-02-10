@@ -1,3 +1,6 @@
+.widget_img{
+  text-align: center;
+}
 .widget_nav_menu{
   position: absolute;
   top: -45px;
@@ -22,13 +25,7 @@
     }
 
     &:after{
-      background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-      height: 5px;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      content: "";
+      @include rainbow (bottom);
     }
   }
 }

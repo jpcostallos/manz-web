@@ -12,6 +12,7 @@
         display: inline-block;
         position: relative;
         z-index: 100;
+        font-family: $fancy-font;
         @extend .transition;
 
         &:before{
@@ -44,8 +45,8 @@
         a{
           font-weight: 600;
           height: 100%;
-          @extend .py-3;
-          @extend .delta;
+          @extend .py-2;
+          @extend .gamma;
 
           &:hover{
             color: $white;
@@ -54,17 +55,12 @@
       }
     }
   }
+
+  &:after{
+    @include rainbow (bottom);
+  }
 }
 
-.banner::after{
-  background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-  height: 5px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  content: " ";
-}
 .banner .nav li {
   @extend .nav-item;
 }
