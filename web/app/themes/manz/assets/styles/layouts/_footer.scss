@@ -1,0 +1,11 @@
+footer.footer{
+  background: $brand-secondary;
+  color: $white;
+}
+
+.footer{
+    @extend .delta;
+    &:before {
+      @include rainbow (top);
+    }
+}

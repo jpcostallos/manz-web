@@ -5,7 +5,7 @@
 html {font-size: 1em;}
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: $base-font;
   font-weight: 400;
   line-height: 1.45;
   color: $brand-gray;
@@ -20,7 +20,7 @@ h1, h2, h3, h4 {
 }
 
 .brand{
-  font-family: 'Pacifico', cursive;
+  font-family: $fancy-font;
   font-size: 3.157em;
 }
 
@@ -35,6 +35,17 @@ h3, .gamma {font-size: 1.777em;}
 
 h4, .delta {font-size: 1.333em;}
 
+h5, .epsilon {font-size: 1em;}
+
 small, .zeta {font-size: 0.75em;}
 
+.light { font-weight: 300;}
+
 a:hover{text-decoration: none;}
+
+
+@include media-breakpoint-down(sm) {
+  html {font-size: 0.85em;}
+  h2, .beta {font-size: 1.777em;}
+  .entry-title {padding: 0.5em 0;}
+}

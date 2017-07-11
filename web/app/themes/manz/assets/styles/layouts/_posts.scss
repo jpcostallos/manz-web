@@ -10,3 +10,9 @@
     @extend .hover-gray;
   }
 }
+
+.single article{
+  header, i, h2, h3{
+    color: $brand-primary;
+  }
+}

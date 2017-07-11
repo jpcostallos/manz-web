@@ -2,7 +2,7 @@
   /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
   width: 109%;
   position: relative;
-  background: $brand-gray-3;
+  background: $brand-secondary;
   color: $white;
   text-align: center;
   padding: 0.5em 2em; /* Adjust to suit */
@@ -13,7 +13,7 @@
   position: absolute;
   display: block;
   bottom: -1em;
-  border: 1em solid $brand-gray-2;
+  border: 1em solid $brand-tertiary;
   z-index: -1;
 }
 .ribbon:before {
@@ -31,7 +31,7 @@
   position: absolute;
   display: block;
   border-style: solid;
-  border-color: $brand-gray-3 transparent transparent transparent;
+  border-color: $brand-secondary transparent transparent transparent;
   bottom: -1em;
 }
 .ribbon .ribbon-content:before {
@@ -41,4 +41,24 @@
 .ribbon .ribbon-content:after {
   right: 0;
   border-width: 1em 1em 0 0;
+}
+
+
+
+@include media-breakpoint-down(sm) {
+  .ribbon{
+    width: 100%;
+    position: relative;
+    background: $brand-secondary;
+    color: $white;
+    text-align: center;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    margin: 0;
+    padding: 0.5em;
+
+    &:after, &:before, .ribbon-content:after, .ribbon-content:before{
+      display: none;
+    }
+  }
 }
